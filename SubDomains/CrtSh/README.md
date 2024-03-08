@@ -1,3 +1,5 @@
+### What is Crt.sh
+
 Crt.sh is a website that allows to gather information from a domain through a certificate-based search. crt.sh provides a searchable database of certificate transparency logs. Certificate Transparency is an Internet security standard and open source framework for monitoring and auditing digital certificates.
 
 We can use this website to get subdomains from a given domain, using the following script we can do a request and then parse the response to only get the subdomains.
