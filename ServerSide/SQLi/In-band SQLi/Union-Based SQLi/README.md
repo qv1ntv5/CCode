@@ -50,7 +50,9 @@ Obtendremos un error del servidor lo cual quiere decir que había 3 columnas.
 
 Otro método que podemos probar es pasar tantos nulls como columnas haya  **'UNION SELECT null,...null** hasta **NO** obtener un error. Observemos que este proceso es factible debido a que el objeto NULL, como datatype, es compatible con cualquier otro datatype.
 
-#### Extrayendo información.
+**Es importante recordar que en bases de datos tipo ORACLE, es necesario referirse siempre a una tabla en una query SELECT, siempre podemos utilizar la sempiterna tabla DUAL; ' UNION SELECT NULL FROM DUAL--**
+
+#### 2. Extrayendo información.
 
 Una vez sabemos el número de columnas de la query principal, tenemos que extraer información en una query anexada a través de la columna que tenga un datatype compatible con el tipo de dato que queremos extraer.
 
@@ -60,4 +62,13 @@ Para ello, supongámos que tenemos un In-band SQLi que responde a la siguiente i
 https://insecure-website.com/products?category=' UNION SELECT null,null,null
 ```
 
-Entonces, podemos 
+Entonces, podemos probar qué tipo de dato accepta qué columna testeando manualmente:
+
+```
+' UNION SELECT 'a',NULL,NULL,NULL--
+' UNION SELECT NULL,'a',NULL,NULL--
+' UNION SELECT NULL,NULL,'a',NULL--
+' UNION SELECT NULL,NULL,NULL,'a'--
+```
+
+Sabremos que una columna es válida para extraer datos de un tipo concreto cuando no recibamos un error.
