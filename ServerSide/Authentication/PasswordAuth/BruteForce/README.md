@@ -31,3 +31,14 @@ Podemos utilizar diversas herramientas para poder realizar ataques de fuerza bru
     - [Hydra](https://www.kali.org/tools/hydra/) es una herramienta que permite realizar ataques de fuerza bruta contra una serie de servicios en un servudor remoto (FTP, SSH, SMB, HTTP, etc) de forma flexible y customizable.
 
     - [NetExec](https://github.com/Pennyw0rth/NetExec), se trata de la continuación del proyecto de [CrackMapExec](https://www.kali.org/tools/crackmapexec/) y puede servir para realizar ataques de fuerza bruta o comprobar credenciales en determinados entornos.
+
+<br>
+
+### Medidas de protección.
+
+Realizando estos procedimientos nos podemos llegar a encontrar ciertas medidas de protección, como las siguientes:
+
+- Bloquear la cuenta del usuario cuya contraseña se está intentando adivinar.
+
+- Bloquear la IP pública del router que estemos usuando para hacer el ataque de fuerza bruta.
+
