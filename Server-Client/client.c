@@ -12,28 +12,26 @@ int main(){
 
     struct sockaddr_in sockaddr;
     sockaddr.sin_family = AF_INET;
-    sockaddr.sin_port = htons(9999);
-    sockaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); //We define the ip and the port we want to connect.
+    sockaddr.sin_port = htons(9999); //The port is specified to be setted in Big-Endian.
+    sockaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); //We define the family address family, the ip and the port we want to connect.
 
-    int sockconnect = connect(sockfd, (struct sockaddr*)&sockaddr, sizeof(sockaddr)); 
+    int sockconnect = connect(sockfd, (struct sockaddr*)&sockaddr, sizeof(sockaddr)); //We connect to the specified address.
 
     if (sockconnect == 0){
-        printf("[+] Connected successfully to 127.0.0.1:9999.\n");
+        printf("[+] Connected successfully to 127.0.0.1:9999.\n"); //Check connection.
     }
 
 	char* message = malloc(255*sizeof(char));
 
-	int messagebytes = recv(sockfd, message, 255, 0); 
+	int messagebytes = recv(sockfd, message, 255, 0); //receive message.
 
     if (messagebytes != -1){
-
         printf("[+] Received %d bytes\n",messagebytes);
-
     }
 
 	printf("[+] The message is: %s\n",message);
 
-	free(message);
+	free(message); //free pointer.
 
     return 0;
 }
